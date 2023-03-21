@@ -2,21 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Order extends Model
+class Post extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders';
-
-    public function comments ()
-    {
-        return $this -> hasMany (Comment::class);
-    }
+    protected $table = 'posts';
 
     public function user ()
     {

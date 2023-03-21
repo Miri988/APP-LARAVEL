@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\User;
-use App\Models\Order;
-
+use App\Models\Order ;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,8 +30,8 @@ class UserController extends Controller
         $order_id = $request->route('order_id');
         $comment_id = $request->route('comment_id');
         $user = User::find ($id);
-        $order = User::find ($order_id);
-        $comment = Order::find ($comment_id);
+        $order = Order::find ($order_id);
+        $comment = Comment::find ($comment_id);
         if ($user && $order && $comment) {
             return 
                 "User $user -> id, Имя: $user -> firstname, Фамилия $user -> surname, 

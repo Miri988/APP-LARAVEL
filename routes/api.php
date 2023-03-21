@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 
 /*
@@ -29,3 +30,5 @@ Route::get('/users/{id}/orders/{order_id}/comments/{comment_id}', [UserControlle
     'order_id' => '\d+',
     'comment_id' => '\d+'
 ]) ;
+
+Route::post('/signup', [AuthController::class, 'signup']);
