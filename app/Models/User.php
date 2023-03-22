@@ -46,12 +46,12 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    public function orders ()
+    public function order ()
     {
         return $this -> hasMany (Order::class);
     }
 
-    public function posts ()
+    public function post ()
     {
         return $this -> hasMany (Post::class);
     }

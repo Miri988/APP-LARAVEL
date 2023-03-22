@@ -11,9 +11,9 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $table = 'comments';
+    protected $table = 'orders_comments';
 
-    public function orders ()
+    public function order ()
     {
         return $this -> belongsTo(Order::class);
     }
