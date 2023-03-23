@@ -10,6 +10,10 @@ class PostComment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'comment',
+    ];
+
     protected $table = 'posts_comments';
 
     public function post ()

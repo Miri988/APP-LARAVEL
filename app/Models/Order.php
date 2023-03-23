@@ -11,6 +11,12 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product',
+        'quantity',
+    ];
+
+
     protected $table = 'orders';
 
     public function comment ()

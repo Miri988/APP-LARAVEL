@@ -11,6 +11,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'comment',
+    ];
+
     protected $table = 'orders_comments';
 
     public function order ()

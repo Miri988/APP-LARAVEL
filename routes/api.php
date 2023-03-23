@@ -39,3 +39,5 @@ Route::resources([
     'posts' => PostController::class,
     'posts/comments' => PostCommentController::class,
 ]);
+
+Route::post('/login', [AuthController::class, 'login']);

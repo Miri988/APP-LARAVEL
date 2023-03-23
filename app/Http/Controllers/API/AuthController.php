@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserSignupRequest;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class AuthController extends Controller
 {
-    public function signup (Request $request)
+    public function signup (UserSignupRequest $request)
     {
         $user = User::create([
             'name' => $request -> get ('name'),
@@ -31,10 +32,9 @@ class AuthController extends Controller
         ]);
     }
 
-    //Задание:
-// Доработать пример с занятия:
-// - 
-// - добавить API контроллер для получения постов пользователя с возможностью частичного поиска по названию статьи (для выборки необходимой информации используйте сборщик запросов в БД)
+    public function login ()
+        {
 
-
+        }
+    
 }
