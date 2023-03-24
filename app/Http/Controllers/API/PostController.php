@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,9 +19,15 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $post = Post::create ([
+            'user_id' => $request -> user() -> id(),
+            'text' => $request -> get('text'),
+            'title' => $request -> get('title'),
+        ]);
+
+        return response() -> json($post, 201);
     }
 
     /**

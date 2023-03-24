@@ -41,3 +41,15 @@ Route::resources([
 ]);
 
 Route::post('/login', [AuthController::class, 'login']);
+
+//Route::get('/me', [AuthController::class, 'me']) -> middleware('auth:sanctum');
+
+Route::middleware('auth:sanctum') -> group(function () {
+    Route::get('/me', [AuthController::class, 'me']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/logout_all', [AuthController::class, 'logoutAll']);
+});
+
+Route::post('/users/add-post', [PostController::class, 'create']);
+
+Route::get('/users/posts/{id}', [PostController::class, 'show']);
