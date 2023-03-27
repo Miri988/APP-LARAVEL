@@ -22,7 +22,7 @@ class PostController extends Controller
     public function create(Request $request)
     {
         $post = Post::create ([
-            'user_id' => $request -> user() -> id(),
+            'user_id' => $request -> user() -> id,
             'text' => $request -> get('text'),
             'title' => $request -> get('title'),
         ]);
@@ -41,9 +41,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $post = Post::find($request -> route('id'));
+        if ($post === null) {
+            return response() -> json(['message' => 'post not found'], 404);
+        }
+        
+        if ($request -> user() -> cannot('view', $post)) {
+            return response() -> json (
+                [
+                    'message' => 'У тебя нет прав смотерть эту информацию',
+                ],
+                403,
+            );
+        }
+        return response() -> json($post, 200);
     }
 
     /**
